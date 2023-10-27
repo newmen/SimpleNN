@@ -21,10 +21,10 @@ public class RainbowDots extends JFrame implements Runnable, MouseListener {
 
     private boolean redraw = false;
 
-    private BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-    private BufferedImage pimg = new BufferedImage(w / 8, h / 8, BufferedImage.TYPE_INT_RGB);
+    private final BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+    private final BufferedImage pimg = new BufferedImage(w / 8, h / 8, BufferedImage.TYPE_INT_RGB);
 
-    private NeuralNetwork nn;
+    private final NeuralNetwork nn;
 
     public List<Point> points = new ArrayList<>();
 
@@ -133,9 +133,9 @@ public class RainbowDots extends JFrame implements Runnable, MouseListener {
             Color nearColor = BLACK_BORDERS.contains(mainColor) ? Color.BLACK : Color.WHITE;
 
             ig.setColor(nearColor);
-            ig.fillOval(p.x - 3, p.y - 3, 26, 26);
+            ig.fillOval(p.x - 2, p.y - 2, 14, 14);
             ig.setColor(mainColor);
-            ig.fillOval(p.x, p.y, 20, 20);
+            ig.fillOval(p.x, p.y, 10, 10);
         }
         g.drawImage(img, 8, 30, w, h, this);
     }
