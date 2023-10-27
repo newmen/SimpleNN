@@ -2,10 +2,10 @@ import java.util.function.UnaryOperator;
 
 public class NeuralNetwork {
 
-    private double learningRate;
-    private Layer[] layers;
-    private UnaryOperator<Double> activation;
-    private UnaryOperator<Double> derivative;
+    private final double learningRate;
+    private final Layer[] layers;
+    private final UnaryOperator<Double> activation;
+    private final UnaryOperator<Double> derivative;
 
     public NeuralNetwork(double learningRate, UnaryOperator<Double> activation, UnaryOperator<Double> derivative, int... sizes) {
         this.learningRate = learningRate;
@@ -53,7 +53,7 @@ public class NeuralNetwork {
             double[] errorsNext = new double[l.size];
             double[] gradients = new double[l1.size];
             for (int i = 0; i < l1.size; i++) {
-                gradients[i] = errors[i] * derivative.apply(layers[k + 1].neurons[i]);
+                gradients[i] = errors[i] * derivative.apply(l1.neurons[i]);
                 gradients[i] *= learningRate;
             }
             double[][] deltas = new double[l1.size][l.size];

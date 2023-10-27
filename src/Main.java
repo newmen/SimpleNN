@@ -12,7 +12,8 @@ public class Main {
     }
 
     private static void dots() {
-        FormDots f = new FormDots();
+//        Runnable f = new FormDots();
+        Runnable f = new RainbowDots();
         new Thread(f).start();
     }
 
